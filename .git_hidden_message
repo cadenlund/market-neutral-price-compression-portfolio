@@ -1,0 +1,16 @@
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Conda or virtual environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
