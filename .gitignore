@@ -14,3 +14,7 @@ env/
 venv/
 ENV/
 *.egg-info/
+
+# Ignore Virtual Documents
+.VirtualDocuments/
+
