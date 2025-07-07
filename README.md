@@ -67,44 +67,58 @@ Run the notebook or script that creates the PostgreSQL + TimescaleDB schema and 
 Follow the comments in my blog post step-by-step.\
 You’ll need to have a PostgreSQL server running and the TimescaleDB extension enabled.
 
-### 5. Query the database
+### 5. Query, download, and clean the data
 
-Use the included `PostgresDataHandler` class to query your database from Python:
+Start with the notebook `notebooks/data_ingestion_and_cleaning.ipynb`.\
+This notebook demonstrates how to:
 
-```
+- Download data from [Polygon.io](https://polygon.io) (REST API + S3).
+- Clean and prepare the raw data (null values and stock splits)
+- Store the cleaned data into a TimescaleDB database for efficient querying.
+
+```python
 from dbapi import PostgresDataHandler
 
 handler = PostgresDataHandler(db_uri)
 df = handler.get_data(date='2025-04-15', lookback=200, columns=['close'])
 ```
 
-### 6. Create the alpha factor
+You’ll see the full ingestion pipeline: from fetching the raw data to cleaning and loading it into the database.
 
-Use the provided code to compute the **price compression** factor from price data:
+### 6. Create and analyze the alpha factor
 
-- Compute absolute daily price changes.
-- Take rolling standard deviation over a 14-day window.
-- Invert the volatility to score stocks with tight price ranges higher.
-- Stack into multi-index (date, ticker) format for Alphalens.
+Next, move to `notebooks/Alpha_factor_analysis_and_portfolio.ipynb`.\
+This notebook shows how to use the `PostgresDataHandler` to load clean price data from the database and perform analysis:
 
-### 7. Evaluate the factor
+- Use the included `PostgresDataHandler` class (implemented in `src/dbapi.py`) to query your database from Python.
+- Calculate the **price compression** alpha factor:
+  - Compute absolute daily price changes.
+  - Take rolling standard deviation over a 14-day window.
+  - Invert the volatility to score stocks with tighter price ranges higher.
+  - Stack into multi-index `(date, ticker)` format for Alphalens.
+- Evaluate the factor:
+  - Clean the factor and forward returns.
+  - Generate Alphalens tearsheets.
+  - Optionally, perform SIC (sector) group analysis.
 
-Run the Alphalens workflow:
-
-- Clean the factor and forward returns.
-- Generate tearsheets.
-- Perform sector (SIC) group analysis if desired.
-
-```
+```python
 import alphalens as al
-factor_data = al.utils.get_clean_factor_and_forward_returns(factor, prices, periods=(1, 2, 3))
+
+factor_data = al.utils.get_clean_factor_and_forward_returns(
+    factor, prices, periods=(1, 2, 3)
+)
 al.tears.create_full_tear_sheet(factor_data)
 ```
 
-## Notes
+### Notes
 
+- The ingestion notebook downloads, cleans, and stores data in TimescaleDB.
+- The `PostgresDataHandler` API is located in `src/dbapi.py`.
 - Data is sourced from [Polygon.io](https://polygon.io) (REST API + S3).
-- The database design and queries assume TimescaleDB is available for efficient time-series storage.
 - The `.env` file should never be committed — it contains sensitive information.
-- Example queries, plots, and output files can be found in the notebooks.
+- The notebooks folder contains example queries, plots, and output files.
+- For a full explanation of the methodology and results, visit the [project website](https://your-website-link.com).
+
+
+
 
