@@ -119,7 +119,7 @@ al.tears.create_full_tear_sheet(factor_data)
 - Data is sourced from [Polygon.io](https://polygon.io) (REST API + S3).
 - The `.env` file should never be committed — it contains sensitive information.
 - The notebooks folder contains example queries, plots, and output files.
-- For a full explanation of the methodology and results, visit the [project website](https://your-website-link.com).
+- For a full explanation of the methodology and results, visit the [project website](https://www.cadenlund.com/projects/market-neutral-price-compression-portfolio).
 
 
 
