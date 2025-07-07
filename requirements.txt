@@ -1,0 +1,14 @@
+boto3
+botocore
+python-dotenv
+pandas
+tqdm
+matplotlib
+numpy
+sqlalchemy
+jupyter
+jupyterlab
+notebook
+polygon-api-client
+alphalens-reloaded
+vectorbt
