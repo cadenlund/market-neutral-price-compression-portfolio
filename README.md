@@ -38,6 +38,8 @@ Alternatively, you can use `pip` and `requirements.txt` if provided:
 pip install -r requirements.txt
 ```
 
+Just make sure your running python 3.11 for maximum compatibility. 
+
 ### 3. Configure environment variables
 
 Create a `.env` file in the root of the repository with your credentials:
