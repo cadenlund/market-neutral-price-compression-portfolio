@@ -59,7 +59,7 @@ This file is used to securely load API keys and database credentials.
 
 Run the notebook or script that creates the PostgreSQL + TimescaleDB schema and populates it with data from Polygon.io:
 
-- Create the tables (`ticker_metadata` and `ohlcv_data`).
+- Create the tables (`ticker_metadata` and `ohlcv_data`) with the schema defined in the db folder.
 - Download and clean the data.
 - Adjust prices for stock splits.
 - Store the clean data in the database.
