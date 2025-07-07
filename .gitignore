@@ -16,5 +16,5 @@ ENV/
 *.egg-info/
 
 # Ignore Virtual Documents
-.VirtualDocuments/
+.virtual_documents/
 
