@@ -4,7 +4,7 @@ This repository contains code and data pipelines to build and evaluate a **marke
 
 ## How to follow along
 
-A full, formal explanation of the code along with examples and images is available on my [personal website](https://www.cadenlund.com/projects/Long-short-portfolio)
+A full, formal explanation of the code along with examples and images is available on my [personal website](https://www.cadenlund.com/projects/market-neutral-price-compression-portfolio)
 
 It demonstrates:
 
