@@ -82,5 +82,3 @@ class PostgresDataHandler:
 
   def close(self): # Close the database connection
       self.conn.close()
-      
-)

@@ -8,6 +8,7 @@ __pycache__/
 *.pyd
 
 # Ignore Conda or virtual environments
+.env
 .env/
 .venv/
 env/
