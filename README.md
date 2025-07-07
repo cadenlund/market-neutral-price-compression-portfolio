@@ -2,6 +2,10 @@
 
 This repository contains code and data pipelines to build and evaluate a **market-neutral, factor-based long-short stock strategy** using a custom **price compression alpha factor**.
 
+## How to follow along
+
+A full, formal explanation of the code along with examples and images is available on my [personal website](https://www.cadenlund.com/projects/Long-short-portfolio)
+
 It demonstrates:
 
 - How to set up a database for historical stock data.
@@ -60,7 +64,7 @@ Run the notebook or script that creates the PostgreSQL + TimescaleDB schema and 
 - Adjust prices for stock splits.
 - Store the clean data in the database.
 
-Follow the comments in the notebook step-by-step.\
+Follow the comments in my blog post step-by-step.\
 You’ll need to have a PostgreSQL server running and the TimescaleDB extension enabled.
 
 ### 5. Query the database
