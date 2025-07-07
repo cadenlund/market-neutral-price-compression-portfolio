@@ -49,7 +49,7 @@ POLYGON_API_KEY=your_polygon_api_key
 POSTGRES_USER=your_db_user
 POSTGRES_PASSWORD=your_db_password
 POSTGRES_HOST=your_db_host
-POSTGRES_PORT=5432
+POSTGRES_PORT=your_db_port
 POSTGRES_DB=your_db_name
 ```
 
